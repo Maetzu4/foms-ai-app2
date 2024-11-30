@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Home() {
 
-  const formulariosRecientes = ['formulario 1', 'formulario 2', 'formulario 3', 'formulario 4', 'formulario 5'];
+  const formulariosRecientes = ['formulario 1', 'formulario 2', 'formulario 3', 'formulario 4', 'formulario 5', 'formulario 6'];
 
   return (
     <div className="px-4 md:px-20 lg:px-40 xl:px-72">
