@@ -1,12 +1,11 @@
 // src/app/page.tsx
-"use client"
+"use client";
 
-import { EllipsisVertical, List, PencilLine, Plus } from "lucide-react";
+import { EllipsisVertical, Eye, List, PencilLine, Plus } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
-
-  const formulariosRecientes = ['formulario 1', 'formulario 2', 'formulario 3', 'formulario 4', 'formulario 5', 'formulario 6'];
+  const formulariosRecientes = ["formulario 1", "formulario 2", "formulario 3"];
 
   return (
     <div className="px-4 md:px-20 lg:px-40 xl:px-72">
@@ -17,32 +16,51 @@ export default function Home() {
         <br />
         <Link
           href="/forms/1"
-          className="btn bg-blue-500 text-white hover:bg-blue-600 rounded-lg transition duration-500">
+          className="btn rounded-lg bg-blue-500 text-white transition duration-500 hover:bg-blue-600"
+        >
           <Plus size={24} />
           NUEVO FORMULARIO
+        </Link>
+        <Link
+          href="/Ver"
+          className="btn rounded-lg bg-blue-500 text-white transition duration-500 hover:bg-blue-600"
+        >
+          <Eye size={24} />
+          VER FORMULARIO
         </Link>
       </div>
       <div className="card shadow-xl">
         <div className="card-body">
           <div className="flex justify-between">
-            <h2 className="mb-2 text-lg text-blue-400">Formularios recientes</h2>
+            <h2 className="mb-2 text-lg text-blue-400">
+              Formularios recientes
+            </h2>
             <Link href="/forms">
               <h2 className="mb-2 text-lg text-blue-400">Ver todos</h2>
             </Link>
           </div>
           <div className="card">
             {formulariosRecientes.map((formulario, index) => (
-              <div className="flex justify-between items-center" key={index}>
+              <div className="flex items-center justify-between" key={index}>
                 <p className="py-1">{formulario} </p>
                 <div className="flex gap-2">
-                  <Link href='/forms/1' className="hover:text-blue-700 transition duration-500">
+                  <Link
+                    href="/forms/1"
+                    className="transition duration-500 hover:text-blue-700"
+                  >
                     <PencilLine size={22} />
                   </Link>
-                  <Link href="'/forms/1'" className="hover:text-blue-700 transition duration-500">
+                  <Link
+                    href="'/forms/1'"
+                    className="transition duration-500 hover:text-blue-700"
+                  >
                     <List size={22} />
                   </Link>
-                  <Link href="'/forms/1'" className="hover:text-blue-700 transition duration-500">
-                  <EllipsisVertical size={22} />
+                  <Link
+                    href="'/forms/1'"
+                    className="transition duration-500 hover:text-blue-700"
+                  >
+                    <EllipsisVertical size={22} />
                   </Link>
                 </div>
               </div>
@@ -51,6 +69,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-
   );
 }
