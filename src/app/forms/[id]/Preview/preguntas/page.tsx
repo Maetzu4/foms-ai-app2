@@ -60,7 +60,7 @@ export default function Preguntas() {
 
           <div>
             <Link
-              href="404"
+              href="/404"
               className="transition duration-500 hover:text-blue-700"
             >
               <Send size={32} />
