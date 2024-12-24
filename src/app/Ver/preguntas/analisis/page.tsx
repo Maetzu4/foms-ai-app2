@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Send } from "lucide-react";
 
 export default function Analisis() {
   // Estado para el mensaje (retroalimentación) y habilitación del botón "Enviar"

@@ -74,7 +74,7 @@ const Analisis = () => {
         className="btn-link flex gap-2 text-blue-500 hover:text-blue-700"
       >
         <Plus size={26} />
-        Añadir otra respuesta
+        Añadir otro analisis
       </button>
 
       <div className="justify-center">
