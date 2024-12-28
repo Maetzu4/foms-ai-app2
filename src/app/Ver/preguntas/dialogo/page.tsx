@@ -122,7 +122,7 @@ export default function Dialogo() {
             {/* Link de redirección siempre debajo del input */}
             <div className="mt-4">
               <Link
-                href="/"
+                href="/Ver/preguntas/photo"
                 className="btn rounded-md bg-blue-500 text-white hover:bg-blue-700"
               >
                 Enviar

@@ -3,6 +3,7 @@
 import Analisis from "@/components/Analisis";
 import Dialog from "@/components/Dialog";
 import Open from "@/components/Open";
+import PhotoAnalisis from "@/components/PhotoAnalisis";
 import { FileImage, Send } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -12,6 +13,7 @@ export default function Preguntas() {
   const [mostrarAbierta, setMostrarAbierta] = useState(false);
   const [mostrarAnalisis, setMostrarAnalisis] = useState(false);
   const [mostrarDialogo, setMostrarDialogo] = useState(false);
+  const [mostrarPhoto, setMostrarPhoto] = useState(false);
   const selectRef = useRef<HTMLSelectElement>(null);
 
   const handleChange = () => {
@@ -24,25 +26,31 @@ export default function Preguntas() {
           setMostrarAbierta(false);
           setMostrarAnalisis(false);
           setMostrarDialogo(false);
-          //setRespuestas([{ id: 1, activo: false, activo2: false }]);
+          setMostrarPhoto(false);
           break;
         case "Pregunta abierta":
           setMostrarAbierta(true);
           setMostrarAnalisis(false);
           setMostrarDialogo(false);
-          //setRespuestas([{ id: 1, activo: false, activo2: false }]);
+          setMostrarPhoto(false);
           break;
         case "Análisis abierto":
           setMostrarAnalisis(true);
           setMostrarAbierta(false);
           setMostrarDialogo(false);
-          //setRespuestas([{ id: 1, activo: false, activo2: false }]);
+          setMostrarPhoto(false);
           break;
         case "Diálogo":
           setMostrarDialogo(true);
           setMostrarAnalisis(false);
           setMostrarAbierta(false);
-          //setRespuestas([{ id: 1, activo: false, activo2: false }]);
+          setMostrarPhoto(false);
+          break;
+        case "Pregunta foto":
+          setMostrarPhoto(true);
+          setMostrarDialogo(false);
+          setMostrarAnalisis(false);
+          setMostrarAbierta(false);
           break;
         default:
           break;
@@ -96,6 +104,7 @@ export default function Preguntas() {
                 <option value="Pregunta abierta">Pregunta abierta</option>
                 <option value="Análisis abierto">Análisis abierto</option>
                 <option value="Diálogo">Diálogo</option>
+                <option value="Pregunta foto">Pregunta foto</option>
               </select>
             </div>
 
@@ -104,6 +113,8 @@ export default function Preguntas() {
             {mostrarAnalisis && <Analisis />}
 
             {mostrarDialogo && <Dialog />}
+
+            {mostrarPhoto && <PhotoAnalisis />}
           </div>
         </div>
       </div>

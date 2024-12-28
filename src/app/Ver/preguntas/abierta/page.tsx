@@ -2,16 +2,19 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { CheckCircle, XCircle, Send } from "lucide-react"; // Asegúrate de importar ambos íconos
 
 export default function Abierta() {
   // Estado para el mensaje (correcto/incorrecto) y habilitación del botón "Enviar"
   const [message, setMessage] = useState("");
   const [isSendEnabled, setIsSendEnabled] = useState(false);
+  const [isCorrect, setIsCorrect] = useState<boolean | null>(null); // Estado para determinar si es correcto o incorrecto
 
   // Función para comprobar la respuesta y generar el mensaje aleatorio
   const handleComprobar = () => {
     // Generamos un número aleatorio (0 o 1) para decidir si es "Correcto" o "Incorrecto"
     const isCorrect = Math.random() > 0.5;
+    setIsCorrect(isCorrect);
     setMessage(isCorrect ? "Correcto" : "Incorrecto");
 
     // Habilitamos el botón "Enviar" solo después de presionar "Comprobar"
@@ -32,6 +35,12 @@ export default function Abierta() {
           <h2 className="mb-4 flex-1 text-center text-2xl font-semibold text-blue-400">
             ENCUESTA DE SATISFACCIÓN DEL CLIENTE HOTEL SANTA TERESA
           </h2>
+          <div>
+            <Link
+              href="404"
+              className="transition duration-500 hover:text-blue-700"
+            ></Link>
+          </div>
         </div>
 
         <div className="card shadow-xl">
@@ -48,7 +57,11 @@ export default function Abierta() {
 
             {/* Mostrar el mensaje de "Correcto" o "Incorrecto" */}
             {message && (
-              <div className="mt-4 text-lg font-semibold">{message}</div>
+              <div className="mt-4 flex items-center justify-start gap-2 text-lg font-semibold">
+                {/* Mostrar el ícono correspondiente dependiendo si es correcto o incorrecto */}
+                {isCorrect ? <CheckCircle size={24} /> : <XCircle size={24} />}
+                {message}
+              </div>
             )}
 
             <div className="mt-4 justify-center">
